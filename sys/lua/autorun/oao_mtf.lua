@@ -27,7 +27,8 @@ end
 	if #a == 1 and #b == 1 then
 	for _,ax in pairs(a) do
 		for _,bx in pairs(b) do
-	msg("\169255025000"..player(ax,"name").." VS \169050150255"..player(bx,"name").."@C")
+	msg("\169255025000"..player(ax,"name").." \169255255255VS \169050150255"..player(bx,"name").."@C")
+	msg("\169255025000"..player(ax,"health").."HP \169255255255- \169050150255"..player(bx,"health").."HP@C")
 	parse("sv_sound2 "..ax.." \"kgb2d/quickplay/maytheforce.ogg\"")
 	parse("sv_sound2 "..bx.." \"kgb2d/quickplay/maytheforce.ogg\"")
 end
