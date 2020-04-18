@@ -33,7 +33,7 @@ function _srtv(id,message)
 			local r= math.round(son)
 				if r==1 then
 						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more player needed.")
-						else
+						elseif r~=1 then
 						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more players needed.")
 				end
 			end
