@@ -43,7 +43,7 @@ function _buy(id,weapon)
 		p("sv_sound2 "..id.." env/click2.wav")
 		m(id,"Only one AWP per team allowed@C")
 		return 1 
-		elseif player(id,"team") == 1 and weapon == 35 and tbought == false then
+	elseif player(id,"team") == 1 and weapon == 35 and tbought == false then
 		tbought = true
 		return 0
 	end
