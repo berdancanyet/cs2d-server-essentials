@@ -5,10 +5,11 @@ local ratio = 0.6 -- %60 of players should rtv to take action.
 
 function setup()
 rtv = 0
-for id= 1, 32 do
-rtved[id]=false
+	for id= 1, 32 do
+		rtved[id]=false
 	end
-end;setup()
+end
+setup()
 
 function math.round(number)
     return number - number % 1
@@ -21,19 +22,19 @@ function _srtv(id,message)
 			rtv = rtv + 1 
 			rtved[id]=true;	
 			if (#player(0,"table")) <= 6 then
-			son= #player(0,"table")*ratio - rtv
-			local r= math.round(son)+1
+				son= #player(0,"table")*ratio - rtv
+				local r= math.round(son)+1
 				if r==1 then
-						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more player needed.")
-						elseif r~=1 then
+					msg(""..player(id,"name").." used rtv command. "..tostring(r).." more player needed.")
+					elseif r~=1 then
 						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more players needed.")
-						end
+				end
 			elseif (#player(0,"table")) > 6 then
-			son= #player(0,"table")*ratio - rtv
-			local r= math.round(son)
+				son= #player(0,"table")*ratio - rtv
+				local r= math.round(son)
 				if r==1 then
-						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more player needed.")
-						elseif r~=1 then
+					msg(""..player(id,"name").." used rtv command. "..tostring(r).." more player needed.")
+					elseif r~=1 then
 						msg(""..player(id,"name").." used rtv command. "..tostring(r).." more players needed.")
 				end
 			end
@@ -54,6 +55,6 @@ end
 addhook("leave","_rleave")
 function _rleave(id)
 	if rtved[id] == true then
-	rtv = rtv - 1
+		rtv = rtv - 1
 	end
 end
