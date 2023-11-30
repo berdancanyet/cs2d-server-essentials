@@ -1,4 +1,4 @@
-# CS2D Public Server Essentials
+# CS2D Server Essentials
 Ready-to-use public server pack that contains essential scripts.
 
 ## This script pack contains:
