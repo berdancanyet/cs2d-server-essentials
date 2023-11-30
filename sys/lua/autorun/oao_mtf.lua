@@ -1,8 +1,7 @@
 --"One and Only" and "May the force be with you" Script by BcY. 04/2020.
---Updated 27/10/2023
-local triggered = false
+--Updated 30/11/2023
+local triggered, msg, parse, pairs = false, msg, parse, pairs
 
-addhook('leave', 'AA_die')
 addhook('die', 'AA_die')
 addhook('startround', 'AA_start')
 
@@ -13,7 +12,7 @@ function AA_die(id)
 		local function announceAndPlaySound(playerList, colorCode, colorCode2)
 			for _, playerID in pairs(playerList) do
 				msg(colorCode .. player(playerID, "name") .. ""..colorCode2.." is one and only!@C")
-				parse("sv_sound \"kgbdd/oneandonly.ogg\"")
+				parse("sv_sound \"fun/oneandonly.ogg\"")
 			end
 		end
 
@@ -27,10 +26,10 @@ function AA_die(id)
 			local ttColor, ctColor = "\169255025000", "\169050150255"
 			for _, ax in pairs(tt) do
 				for _, bx in pairs(ct) do
-					msg(ttColor .. player(ax, "name") .. "  \169255255255VS " .. ctColor .. player(bx, "name") .. "@C")
+					msg(ttColor .. player(ax, "name") .. " \169255255255VS " .. ctColor .. player(bx, "name") .. "@C")
 					msg(ttColor .. player(ax, "health") .. "HP \169255255255- " .. ctColor .. player(bx, "health") .. "HP@C")
-					parse("sv_sound2 " .. ax .. " \"kgbdd/maytheforce.ogg\"")
-					parse("sv_sound2 " .. bx .. " \"kgbdd/maytheforce.ogg\"")
+					parse("sv_sound2 " .. ax .. " \"fun/maytheforce.ogg\"")
+					parse("sv_sound2 " .. bx .. " \"fun/maytheforce.ogg\"")
 				end
 			end
 			triggered = true
