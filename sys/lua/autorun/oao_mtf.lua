@@ -1,5 +1,5 @@
 --"One and Only" and "May the force be with you" Script by BcY. 04/2020.
---Updated 30/11/2023
+--Updated 09/12/2023
 local triggered, msg, parse, pairs = false, msg, parse, pairs
 
 addhook('die', 'AA_die')
@@ -11,8 +11,10 @@ function AA_die(id)
 	if not triggered then
 		local function announceAndPlaySound(playerList, colorCode, colorCode2)
 			for _, playerID in pairs(playerList) do
-				msg(colorCode .. player(playerID, "name") .. ""..colorCode2.." is one and only!@C")
-				parse("sv_sound \"fun/oneandonly.ogg\"")
+				local message = colorCode .. player(playerID, "name") .. ""..colorCode2.." is one and only!@C"
+				local sound = "fun/oneandonly.ogg"
+				msg(message)
+				parse("sv_sound "..sound)
 			end
 		end
 
@@ -24,17 +26,20 @@ function AA_die(id)
 			triggered = true
 		elseif #tt == 1 and #ct == 1 then
 			local ttColor, ctColor = "\169255025000", "\169050150255"
-			for _, ax in pairs(tt) do
-				for _, bx in pairs(ct) do
-					msg(ttColor .. player(ax, "name") .. " \169255255255VS " .. ctColor .. player(bx, "name") .. "@C")
-					msg(ttColor .. player(ax, "health") .. "HP \169255255255- " .. ctColor .. player(bx, "health") .. "HP@C")
-					parse("sv_sound2 " .. ax .. " \"fun/maytheforce.ogg\"")
-					parse("sv_sound2 " .. bx .. " \"fun/maytheforce.ogg\"")
-				end
-			end
+					local msg1 = ttColor .. player(tt[1], "name") .. " \169255255255VS " .. ctColor .. player(ct[1], "name") .. "@C"
+					local msg2 = ttColor .. player(tt[1], "health") .. "HP \169255255255- " .. ctColor .. player(ct[1], "health") .. "HP@C"
+					local sound = "fun/maytheforce.ogg"
+					msg(msg1)
+					msg(msg2)
+					parse("sv_sound2 " .. tt[1] .. " "..sound)
+					parse("sv_sound2 " .. ct[1] .. " "..sound)
 			triggered = true
 		end
 	end
+end
+
+function AA_start()
+	triggered = false
 end
 
 function AA_start()
